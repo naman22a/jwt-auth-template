@@ -31,6 +31,9 @@ export class AuthService {
     }
 
     sendRefreshToken(res: Response, token: string) {
-        res.cookie(COOKIE_NAME, token, { httpOnly: true });
+        res.cookie(COOKIE_NAME, token, {
+            httpOnly: true,
+            path: '/auth/refresh_token',
+        });
     }
 }
