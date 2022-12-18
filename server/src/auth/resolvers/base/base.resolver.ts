@@ -11,7 +11,7 @@ import { AuthService, MailService, ValidationService } from '../../services';
 import { MyContext } from '../../../types';
 import { UseGuards } from '@nestjs/common';
 import { AuthGuard } from '../../guards';
-import { COOKIE_NAME } from '../../../constants';
+import { COOKIE_NAME, COOKIE_OPTIONS } from '../../../constants';
 
 @Resolver()
 export class BaseResolver {
@@ -109,7 +109,7 @@ export class BaseResolver {
     @UseGuards(AuthGuard)
     @Mutation('logout')
     async logout(@Context() { res }: MyContext): Promise<boolean> {
-        res.clearCookie(COOKIE_NAME);
+        res.clearCookie(COOKIE_NAME, COOKIE_OPTIONS);
         return true;
     }
 }

@@ -1,3 +1,4 @@
+
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -42,13 +43,9 @@ export abstract class IMutation {
 
     abstract logout(): boolean | Promise<boolean>;
 
-    abstract register(
-        registerDto: RegisterDto,
-    ): OkResponse | Promise<OkResponse>;
+    abstract register(registerDto: RegisterDto): OkResponse | Promise<OkResponse>;
 
-    abstract resetPassword(
-        resetPasswordDto: ResetPasswordDto,
-    ): OkResponse | Promise<OkResponse>;
+    abstract resetPassword(resetPasswordDto: ResetPasswordDto): OkResponse | Promise<OkResponse>;
 }
 
 export class OkResponse {

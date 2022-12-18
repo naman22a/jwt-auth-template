@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
 import { Response } from 'express';
 import { sign } from 'jsonwebtoken';
-import { COOKIE_NAME } from '../../../constants';
+import { COOKIE_NAME, COOKIE_OPTIONS } from '../../../constants';
 import { AcessTokenPayload, RefreshTokenPayload } from '../../../types';
 
 @Injectable()
@@ -31,9 +31,6 @@ export class AuthService {
     }
 
     sendRefreshToken(res: Response, token: string) {
-        res.cookie(COOKIE_NAME, token, {
-            httpOnly: true,
-            path: '/auth/refresh_token',
-        });
+        res.cookie(COOKIE_NAME, token, COOKIE_OPTIONS);
     }
 }
