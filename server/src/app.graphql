@@ -1,0 +1,9 @@
+type FieldError {
+    field: String!
+    message: String!
+}
+
+type OkResponse {
+    ok: Boolean!
+    errors: [FieldError!]
+}

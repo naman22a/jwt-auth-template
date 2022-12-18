@@ -1,0 +1,8 @@
+mutation Login($loginDto: LoginDto!) {
+    login(loginDto: $loginDto) {
+        accessToken
+        errors {
+            ...error
+        }
+    }
+}

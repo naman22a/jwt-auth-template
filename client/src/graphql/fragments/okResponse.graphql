@@ -1,0 +1,6 @@
+fragment okResponse on OkResponse {
+    ok
+    errors {
+        ...error
+    }
+}

@@ -1,0 +1,29 @@
+type Mutation {
+    register(registerDto: RegisterDto!): OkResponse!
+    confirmEmail(token: String!): OkResponse!
+    login(loginDto: LoginDto!): LoginResponse!
+    logout: Boolean!
+    forgotPassword(email: String!): OkResponse!
+    resetPassword(resetPasswordDto: ResetPasswordDto!): OkResponse!
+}
+
+input RegisterDto {
+    name: String!
+    email: String!
+    password: String!
+}
+
+input LoginDto {
+    email: String!
+    password: String!
+}
+
+type LoginResponse {
+    accessToken: String!
+    errors: [FieldError!]
+}
+
+input ResetPasswordDto {
+    token: String!
+    password: String!
+}
